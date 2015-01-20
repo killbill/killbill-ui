@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '3.2.14'
+gem 'i18n', '~>0.6.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +21,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.0.4'
+
+#gem 'kaui', path: "../killbill-admin-ui/"
+gem 'kaui', '~> 0.8.0'
+
+gem 'mysql2', '0.3.17'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
