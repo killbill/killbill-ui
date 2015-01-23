@@ -2,6 +2,8 @@ KillbillUi::Application.routes.draw do
 
   mount Kaui::Engine => "/kaui", :as => "kaui_engine"
 
+  mount Kanaui::Engine => "/kanaui", :as => "kanaui_engine"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
