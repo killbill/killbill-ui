@@ -1,8 +1,11 @@
 KillbillUi::Application.routes.draw do
 
-  mount Kaui::Engine => "/kaui", :as => "kaui_engine"
+  # By default we mount both engines on / (This ONLY works because there is no conflict in the paths)
+  mount Kaui::Engine => "/", :as => "kaui_engine"
 
-  mount Kanaui::Engine => "/kanaui", :as => "kanaui_engine"
+  mount Kanaui::Engine => "/", :as => "kanaui_engine"
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
