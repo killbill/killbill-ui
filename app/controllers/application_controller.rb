@@ -1,35 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :application_controller_ui_filter
+  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen
 
-  def application_controller_ui_filter
-
-
-    if request.fullpath.start_with? '/kanaui'
-      #
-      # - If we have a cookie that looks valid we just verify with Kill Bill the session is still valid.
-      # - If we don't, or if the session is not valid any longer, we redirect to Kaui LoginProxyController so that
-      #   Kaui specific filtering logic for authentication and multi-tenancy can kick-in...
-      #
-      if session &&
-          session['warden.user.user.key'] &&
-          session['kb_tenant_id']
-
-        session_id = session['warden.user.user.key'][0][0]
-        user = Kaui::User.find(session_id) if session_id
-        if user
-          begin
-            KillBillClient::Model::Security.find_permissions :session_id => user.kb_session_id
-            # Yeah, done !!!
-            return
-          rescue KillBillClient::API::Unauthorized => e
-          end
-        end
-      end
-
-      redirect_to Kaui::Engine.routes.url_helpers.check_login_path(:path => request.fullpath), {}
+  def check_for_redirect_to_tenant_screen
+    if !Kaui.is_user_assigned_valid_tenant?(current_user, session)
+      flash[:error] = "No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
+      session[:kb_tenant_id] = nil
+      redirect_to Kaui.tenant_home_path.call and return
     end
-
   end
+
 end
