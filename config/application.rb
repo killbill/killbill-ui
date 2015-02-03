@@ -2,6 +2,11 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require "jquery-rails"
+require "twitter-bootstrap-rails"
+require "d3_rails"
+
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -60,7 +65,16 @@ module KillbillUi
     config.assets.version = '1.0'
 
     config.after_initialize do
+      Kanaui.current_tenant_user = lambda {
+        {:username => 'admin2',
+         :password => 'password2',
+         :session_id => nil,
+         :api_key => KillBillClient.api_key,
+         :api_secret => KillBillClient.api_secret}
+      }
+
       Kaui.layout =  'layouts/application'
+      Kanaui.layout =  'layouts/application'
     end
 
 

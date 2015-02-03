@@ -1,9 +1,9 @@
 KillbillUi::Application.routes.draw do
 
-  # By default we mount both engines on / (This ONLY works because there is no conflict in the paths)
+  # We mount KAUI as root, since this is the primary engine and Kanaui will be mounted under /kanaui
   mount Kaui::Engine => "/", :as => "kaui_engine"
 
-  mount Kanaui::Engine => "/", :as => "kanaui_engine"
+  mount Kanaui::Engine => "/kanaui", :as => "kanaui_engine"
 
   root :to => "home#index"
 
