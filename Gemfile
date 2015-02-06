@@ -21,12 +21,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rails', '3.2.14'
 gem 'jquery-rails', '~> 3.0.4'
+gem 'd3_rails', '~> 3.2.8'
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
 
-#gem 'kaui', path: "../killbill-admin-ui/"
 gem 'kaui', '~> 0.8.0'
+gem 'kanaui', '~> 0.0.1'
 
 gem 'mysql2', '0.3.17'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

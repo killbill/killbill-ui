@@ -65,12 +65,9 @@ module KillbillUi
     config.assets.version = '1.0'
 
     config.after_initialize do
-      Kanaui.current_tenant_user = lambda {
-        {:username => 'admin2',
-         :password => 'password2',
-         :session_id => nil,
-         :api_key => KillBillClient.api_key,
-         :api_secret => KillBillClient.api_secret}
+
+      Kanaui.current_tenant_user = lambda { |session, user|
+        Kaui.current_tenant_user_options(user, session)
       }
 
       Kaui.layout =  'layouts/application'
