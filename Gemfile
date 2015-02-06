@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
 gem 'i18n', '~>0.6.0'
 
 # Bundle edge Rails instead:
@@ -21,12 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rails', '3.2.14'
+gem 'rails', '~> 3.2.14'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'd3_rails', '~> 3.2.8'
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 
 gem 'kaui', '~> 0.8.0'
+
 gem 'kanaui', '~> 0.0.1'
 
 gem 'mysql2', '0.3.17'
