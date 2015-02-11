@@ -3,7 +3,7 @@ KillbillUi::Application.routes.draw do
   # We mount KAUI as root, since this is the primary engine and Kanaui will be mounted under /kanaui
   mount Kaui::Engine => "/", :as => "kaui_engine"
 
-  mount Kanaui::Engine => "/kanaui", :as => "kanaui_engine"
+  mount Kanaui::Engine => "/analytics", :as => "kanaui_engine"
 
   root :to => "home#index"
 

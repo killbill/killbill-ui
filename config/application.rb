@@ -6,6 +6,7 @@ require "jquery-rails"
 require "twitter-bootstrap-rails"
 require "d3_rails"
 
+require "js-routes"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

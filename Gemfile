@@ -24,6 +24,7 @@ gem 'rails', '~> 3.2.14'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'd3_rails', '~> 3.2.8'
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem "js-routes", "~> 1.0.0"
 
 gem 'kaui', '~> 0.8.0'
 
