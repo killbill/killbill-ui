@@ -31,6 +31,9 @@ gem 'kanaui', '~> 0.0.1'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
 
 if defined?(JRUBY_VERSION)
+
+  gem 'warbler', '~> 1.4.5'
+
   gem 'activerecord-jdbc-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
