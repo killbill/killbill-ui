@@ -5,8 +5,6 @@ gem 'i18n', '~>0.6.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,8 +30,15 @@ gem 'kaui', '~> 0.8.0'
 gem 'kanaui', '~> 0.0.1'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
 
-gem 'mysql2', '0.3.17'
-
+if defined?(JRUBY_VERSION)
+  gem 'activerecord-jdbc-adapter', '~> 1.3.9'
+  gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
+  gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
+  gem 'jdbc-mysql', '~> 5.1.25'
+else
+  gem 'sqlite3'
+  gem 'mysql2', '0.3.17'
+end
 
 
 # To use ActiveModel has_secure_password
